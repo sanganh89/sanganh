@@ -2,15 +2,15 @@
 - name : create loopback
   hosts: all
   
-  task:
+  tasks:
     - name: set loopback IPV4 address
       ios_l3_interface:
         name: Loopback "{{item.id}}"
         ipv4: 192.168.{{item.id}}.0/24
-          with_items:
-            - {id: 10}
-            - {id: 20}
-            - {id: 30}
+      with_items:
+        - {id: 10}
+        - {id: 20}
+        - {id: 30}
     - name: show loopback
       ios_command:
         commands: show ip int bri
