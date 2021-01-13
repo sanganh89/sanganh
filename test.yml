@@ -1,5 +1,5 @@
 ---
-- name : create loopback
+- name: create loopback
   hosts: all
   gather_facts: no
   
