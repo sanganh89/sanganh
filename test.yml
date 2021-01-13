@@ -1,15 +1,16 @@
 ---
 - name : create loopback
   hosts: all
+  gather_facts: no
   
   tasks:
     - name: set loopback IPV4 address
       ios_l3_interface:
-        name: Loopback "{{item.id}}"
+        name: loopback "{{item.id}}"
         ipv4: 192.168.{{item.id}}.0/24
       with_items:
-        - {id: 10}
-        - {id: 20}
-        - {id: 30}
+        - { id: 10}
+        - { id: 20}
+        - { id: 30}
 
 
