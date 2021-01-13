@@ -11,9 +11,5 @@
         - {id: 10}
         - {id: 20}
         - {id: 30}
-    - name: show loopback
-      ios_command:
-        commands: show ip int bri
-      register: output
-    - debug : var = output.stdout_lines
+
 
