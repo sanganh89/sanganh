@@ -6,7 +6,7 @@
   tasks:
     - name: set loopback IPV4 address
       ios_l3_interface:
-        name: loopback "{{item.id}}"
+        name: loopback {{item.id}}
         ipv4: 192.168.{{item.id}}.0/24
       with_items:
         - { id: 10}
