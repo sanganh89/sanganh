@@ -1,0 +1,14 @@
+task:
+  - name: set loopback IPV$ address
+  ios_l3_interface:
+  name: Loopback "{{item.id}}"
+  ipv4: 192.168.0. "{{item.ip}}.0"/24
+   with_items:
+   - {id: 10, ip: "10"}
+   - {id: 20, ip: "20"}
+   - {id: 30, ip: "30"}
+ - name: show loopback
+  ios_command:
+  commands: show ip int bri
+  register: output
+  - debug : var = output.stdout lines
