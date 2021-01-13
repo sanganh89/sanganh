@@ -1,16 +1,15 @@
 ---
-- name: create loopback
+- name: tao loopback
   hosts: all
   gather_facts: no
-  
-  tasks:
-    - name: set loopback IPV4 address
-      ios_l3_interface:
-        name: loopback {{item.id}}
-        ipv4: 10.168.{{item.id}}.0/24
-      with_items:
-        - { id: 10}
-        - { id: 20}
-        - { id: 30}
 
+  tasks:
+    - name: dat ip cho loopback
+      ios_l3_interface:
+        name: loopback {{ item.number }}
+        ipv4: 10.0.{{ item.number }}.1/24
+      with_items:
+        - { number: 1 }
+        - { number: 2 }
+        - { number: 3 }
 
